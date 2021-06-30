@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1625067671 source:d:\glcoders\glad.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<glad/glad.h>
+	<windows.h>
+	<winapifamily.h>
+	<dlfcn.h>
+
+1625067547 d:\glcoders\dependencies\include\glad\glad.h
+	<KHR/khrplatform.h>
+
+1625067547 d:\glcoders\dependencies\include\khr\khrplatform.h
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+
