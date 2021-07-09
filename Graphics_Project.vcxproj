@@ -156,8 +156,17 @@
   <ItemGroup>
     <Text Include="modelFS.txt" />
     <Text Include="modelVS.txt" />
+    <Text Include="skybox.txt" />
+    <Text Include="skyboxFS.txt" />
+    <Text Include="skyboxVS.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="cubeMap\back.jpg" />
+    <Image Include="cubeMap\bottom.jpg" />
+    <Image Include="cubeMap\front.jpg" />
+    <Image Include="cubeMap\left.jpg" />
+    <Image Include="cubeMap\right.jpg" />
+    <Image Include="cubeMap\top.jpg" />
     <Image Include="textures\awesomeface.png" />
     <Image Include="textures\container.jpg" />
   </ItemGroup>
