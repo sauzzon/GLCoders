@@ -18,7 +18,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
 
 //cubeMap
-unsigned int loadCubemap(vector<std::string> faces);
+//unsigned int loadCubemap(vector<std::string> faces);
 
 
 // settings
@@ -86,7 +86,7 @@ int main()
     // -------------------------
     Shader ourShader("modelVS.txt", "modelFS.txt");
     Shader skyboxShader("skyboxVS.txt", "skyboxFS.txt");
-
+    /*
     //cubeMap
     float skyboxVertices[] = {
         // positions          
@@ -156,7 +156,7 @@ int main()
 
     skyboxShader.use();
     skyboxShader.setInt("skybox", 0);
-
+    */
 
     // load models
     // -----------
@@ -183,7 +183,7 @@ int main()
 
         // render
         // ------
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // don't forget to enable shader before setting uniforms
@@ -215,6 +215,7 @@ int main()
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
 
+        /*
          // draw skybox as last
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
         skyboxShader.use();
@@ -228,7 +229,7 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         glDepthFunc(GL_LESS); // set depth function back to default
-
+        */
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -293,6 +294,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
     camera.ProcessMouseScroll(yoffset);
 }
 
+/*
 // loads a cubemap texture from 6 individual texture faces
 // order:
 // +X (right)
@@ -332,3 +334,4 @@ unsigned int loadCubemap(vector<std::string> faces)
 
     return textureID;
 }
+*/
