@@ -160,9 +160,9 @@ int main()
 
     // load models
     // -----------
-    Model bigDharaharaModel("objects/big/dharaharabig.obj");
-    //Model smallDharaharaModel("objects/dharaharaSmall/dharaharaSmall.obj");
-
+    Model bigDharaharaModel("objects/big/dharaharaBig.obj");
+    Model smallDharaharaModel("objects/small/dharaharaSmall.obj");
+    Model tree1("objects/tree/tree.obj");
 
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -206,11 +206,19 @@ int main()
 
         //rendering other models here
         //small dharahara
-        //model = glm::mat4(1.0f);
-        //model = glm::translate(model, glm::vec3(1.0f, -0.5f, 0.0f)); // translate it down so it's at the center of the scene
-        //model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));	// it's a bit too big for our scene, so scale it down
-        //ourShader.setMat4("model", model);
-        //smallDharaharaModel.Draw(ourShader);
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(1.3f, -1.3f, -1.0f)); // translate it down so it's at the center of the scene
+        model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));	// it's a bit too big for our scene, so scale it down
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0, 1.0, 0.0));
+        ourShader.setMat4("model", model);
+        smallDharaharaModel.Draw(ourShader);
+
+        //tree
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.6f, -1.7f, -2.0f)); // translate it down so it's at the center of the scene
+        model = glm::scale(model, glm::vec3(0.07f, 0.07f, 0.07f));	// it's a bit too big for our scene, so scale it down
+        ourShader.setMat4("model", model);
+        tree1.Draw(ourShader);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------

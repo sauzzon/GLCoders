@@ -1,0 +1,28 @@
+# Blender MTL File: 'dharaharaSmall.blend'
+# Material Count: 2
+
+newmtl Material.005
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump dirty_concrete_1k_jpg\\dirty_concrete_nor_1k.jpg
+map_Kd dirty_concrete_1k_jpg\\dirty_concrete_diff_1k.jpg
+map_Ns dirty_concrete_1k_jpg\\dirty_concrete_rough_1k.jpg
+
+newmtl Material.008
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump rough_plaster_broken_1k_jpg\\rough_plaster_broken_Nor_1k.jpg
+map_Kd rough_plaster_broken_1k_jpg\\rough_plaster_broken_diff_1k.jpg
+map_Ns rough_plaster_broken_1k_jpg\\rough_plaster_broken_rough_1k.jpg
