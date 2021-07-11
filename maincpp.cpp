@@ -18,7 +18,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
 
 //cubeMap
-//unsigned int loadCubemap(vector<std::string> faces);
+unsigned int loadCubemap(vector<std::string> faces);
 
 
 // settings
@@ -35,7 +35,6 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-//TODO:: Plane position
 
 int main()
 {
@@ -86,7 +85,7 @@ int main()
     // -------------------------
     Shader ourShader("modelVS.txt", "modelFS.txt");
     Shader skyboxShader("skyboxVS.txt", "skyboxFS.txt");
-    /*
+    
     //cubeMap
     float skyboxVertices[] = {
         // positions          
@@ -156,7 +155,76 @@ int main()
 
     skyboxShader.use();
     skyboxShader.setInt("skybox", 0);
-    */
+    
+
+
+    //ground plane
+
+    const float groundPlaneVertices[] = {
+        // positions  //texture coordinates
+        -1, 0, -1, 0, 1,
+        1, 0, -1, 1, 1,
+        1, 0, 1, 1, 0,
+        -1, 0, 1, 0, 0 
+    };
+
+    const unsigned int groundPlaneIndices[] = {
+        0, 1, 2,
+        2, 3, 0 
+    };
+
+    unsigned int groundPlaneVBO, groundPlaneVAO, groundPlaneEBO;
+    glGenVertexArrays(1, &groundPlaneVAO);
+    glGenBuffers(1, &groundPlaneVBO);
+    glGenBuffers(1, &groundPlaneEBO);
+    glBindVertexArray(groundPlaneVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, groundPlaneVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(groundPlaneVertices), groundPlaneVertices, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, groundPlaneEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(groundPlaneIndices), groundPlaneIndices, GL_STATIC_DRAW);
+
+    //position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    //texture coord attribute
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    // load and create ground texture 
+  // -------------------------
+    unsigned int groundTexture;
+    glGenTextures(1, &groundTexture);
+    glBindTexture(GL_TEXTURE_2D, groundTexture); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
+    // set the texture wrapping parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // load image, create texture and generate mipmaps
+    int width, height, nrChannels;
+    // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
+    unsigned char* data = stbi_load("textures/grass.jfif", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
+
+    Shader groundShader("groundVS.txt", "groundFS.txt");
+    glm::mat4 groundModelMatrix = glm::translate(glm::mat4(1.f), glm::vec3(10.f, -2.0f, 0.f));
+    groundModelMatrix = glm::scale(groundModelMatrix, glm::vec3(100.f));
+    groundShader.use();
+    groundShader.setMat4("model", groundModelMatrix);
+    groundShader.setInt("g_texture", 0);
+
 
     // load models
     // -----------
@@ -183,7 +251,7 @@ int main()
 
         // render
         // ------
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.96f, 1.0f, 0.98f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // don't forget to enable shader before setting uniforms
@@ -220,10 +288,19 @@ int main()
         ourShader.setMat4("model", model);
         tree1.Draw(ourShader);
 
+        //plane
+        glBindTexture(GL_TEXTURE_2D, groundTexture);
+        groundShader.use();
+        groundShader.setMat4("projection", projection);
+        groundShader.setMat4("view", view);
+        glBindVertexArray(groundPlaneVAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
 
-        /*
+        
          // draw skybox as last
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
         skyboxShader.use();
@@ -237,7 +314,7 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         glDepthFunc(GL_LESS); // set depth function back to default
-        */
+        
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -302,7 +379,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
     camera.ProcessMouseScroll(yoffset);
 }
 
-/*
+
 // loads a cubemap texture from 6 individual texture faces
 // order:
 // +X (right)
@@ -342,4 +419,3 @@ unsigned int loadCubemap(vector<std::string> faces)
 
     return textureID;
 }
-*/

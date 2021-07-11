@@ -156,6 +156,8 @@
     <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="groundFS.txt" />
+    <Text Include="groundVS.txt" />
     <Text Include="modelFS.txt" />
     <Text Include="modelVS.txt" />
     <Text Include="skybox.txt" />

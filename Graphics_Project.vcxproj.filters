@@ -64,6 +64,12 @@
     <Text Include="skyboxFS.txt">
       <Filter>Resource Files\shaders</Filter>
     </Text>
+    <Text Include="groundVS.txt">
+      <Filter>Resource Files\shaders</Filter>
+    </Text>
+    <Text Include="groundFS.txt">
+      <Filter>Resource Files\shaders</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\awesomeface.png">
