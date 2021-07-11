@@ -1,13 +1,12 @@
 ﻿  maincpp.cpp
 C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
 C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\Mesh.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(244,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(361,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(362,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(366,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(367,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(369,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(370,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(379,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(301,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(430,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(431,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(435,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(436,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(438,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(439,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\maincpp.cpp(448,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Graphics_Project.vcxproj -> C:\Users\sauja\OneDrive\Documents\Desktop\GLCoders\x64\Debug\Graphics_Project.exe
