@@ -26,7 +26,7 @@ const unsigned int SCR_WIDTH = 3840;
 const unsigned int SCR_HEIGHT = 2400;
 
 // camera
-Camera camera(glm::vec3(0.0f, 0.0f, 5.0f));
+Camera camera(glm::vec3(-1.0f, 0.0f, 7.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
