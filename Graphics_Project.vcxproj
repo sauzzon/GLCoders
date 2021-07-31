@@ -160,6 +160,8 @@
     <Text Include="groundVS.txt" />
     <Text Include="lightCubeFS.txt" />
     <Text Include="lightCubeVS.txt" />
+    <Text Include="lightFS.txt" />
+    <Text Include="lightVS.txt" />
     <Text Include="modelFS.txt" />
     <Text Include="modelVS.txt" />
     <Text Include="skybox.txt" />

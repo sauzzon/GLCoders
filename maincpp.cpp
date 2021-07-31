@@ -26,7 +26,7 @@ const unsigned int SCR_WIDTH = 3840;
 const unsigned int SCR_HEIGHT = 2400;
 
 // camera
-Camera camera(glm::vec3(-1.0f, 0.0f, 7.0f));
+Camera camera(glm::vec3(0.0f, 1.0f, 10.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -36,7 +36,9 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 //lighting
-glm::vec3 lightPos(15.0f, 20.0f, 2.0f);
+glm::vec3 lightPos(15.0f, 20.0f, 1.0f);
+//glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+//glm::vec3 lightPos(-1.2f, 1.0f, 2.0f);
 
 int main()
 {
@@ -83,11 +85,12 @@ int main()
     // -----------------------------
     glEnable(GL_DEPTH_TEST);
 
+
     // build and compile shaders
     // -------------------------
-    Shader ourShader("modelVS.txt", "modelFS.txt");
+    //Shader ourShader("modelVS.txt", "modelFS.txt");
     Shader skyboxShader("skyboxVS.txt", "skyboxFS.txt");
-    
+
     //cubeMap
     float skyboxVertices[] = {
         // positions          
@@ -157,7 +160,7 @@ int main()
 
     skyboxShader.use();
     skyboxShader.setInt("skybox", 0);
-    
+
 
 
     //ground plane
@@ -167,12 +170,12 @@ int main()
         -1, 0, -1, 0, 1,
         1, 0, -1, 1, 1,
         1, 0, 1, 1, 0,
-        -1, 0, 1, 0, 0 
+        -1, 0, 1, 0, 0
     };
 
     const unsigned int groundPlaneIndices[] = {
         0, 1, 2,
-        2, 3, 0 
+        2, 3, 0
     };
 
     unsigned int groundPlaneVBO, groundPlaneVAO, groundPlaneEBO;
@@ -285,12 +288,20 @@ int main()
 
     // load models
     // -----------
-    Model bigDharaharaModel("objects/big/dharaharaBig.obj");
-    Model smallDharaharaModel("objects/small/dharaharaSmall.obj");
-    Model tree1("objects/tree/tree.obj");
+    Model bigDharaharaModel("objects/dharahara/dharaharaSerious.obj");
+    //Model smallDharaharaModel("objects/small/dharaharaSmall.obj");
+    //Model tree1("objects/tree/tree.obj");
 
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    // 
+    // 
+     // shader configuration
+    // --------------------
+    Shader lightingShader("lightVS.txt", "lightFS.txt");
+    lightingShader.use();
+    lightingShader.setInt("material.diffuse", 0);
+    lightingShader.setInt("material.specular", 1);
 
     // render loop
     // -----------
@@ -311,39 +322,53 @@ int main()
         glClearColor(0.96f, 1.0f, 0.98f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // don't forget to enable shader before setting uniforms
-        ourShader.use();
+        // be sure to activate shader when setting uniforms/drawing objects
+        lightingShader.use();
+        lightingShader.setVec3("light.position", lightPos);
+        lightingShader.setVec3("viewPos", camera.Position);
+
+        // light properties
+        lightingShader.setVec3("light.ambient", 0.4f, 0.4f, 0.4f);
+        lightingShader.setVec3("light.diffuse", 0.8f, 0.8f, 0.8f);
+        lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setFloat("light.constant", 0.01f);
+        lightingShader.setFloat("light.linear", 0.002f);
+        lightingShader.setFloat("light.quadratic", 0.0013f);
+
+        // material properties
+        lightingShader.setFloat("material.shininess", 32.0f);
 
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
-        ourShader.setMat4("projection", projection);
-        ourShader.setMat4("view", view);
+        lightingShader.setMat4("projection", projection);
+        lightingShader.setMat4("view", view);
 
         // render the loaded model
 
         //big dharahara
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, -1.78f, 0.0f)); // translate it down so it's at the center of the scene
+        model = glm::translate(model, glm::vec3(0.0f, -1.4f, 0.0f)); // translate it down so it's at the center of the scene
         model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
-        ourShader.setMat4("model", model);
-        bigDharaharaModel.Draw(ourShader);
+        model = glm::rotate(model, glm::radians(-135.0f), glm::vec3(0.0, 1.0, 0.0));
+        lightingShader.setMat4("model", model);
+        bigDharaharaModel.Draw(lightingShader);
 
         //rendering other models here
         //small dharahara
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(1.3f, -1.3f, -1.0f)); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));	// it's a bit too big for our scene, so scale it down
-        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0, 1.0, 0.0));
-        ourShader.setMat4("model", model);
-        smallDharaharaModel.Draw(ourShader);
+        //model = glm::mat4(1.0f);
+        //model = glm::translate(model, glm::vec3(1.3f, -1.3f, -1.0f)); // translate it down so it's at the center of the scene
+        //model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));	// it's a bit too big for our scene, so scale it down
+        //model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0, 1.0, 0.0));
+        //lightingShader.setMat4("model", model);
+        //smallDharaharaModel.Draw(lightingShader);
 
         //tree
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.6f, -1.5f, -2.0f)); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(0.07f, 0.07f, 0.07f));	// it's a bit too big for our scene, so scale it down
-        ourShader.setMat4("model", model);
-        tree1.Draw(ourShader);
+        //model = glm::mat4(1.0f);
+        //model = glm::translate(model, glm::vec3(0.6f, -1.5f, -2.0f)); // translate it down so it's at the center of the scene
+        //model = glm::scale(model, glm::vec3(0.07f, 0.07f, 0.07f));	// it's a bit too big for our scene, so scale it down
+        //lightingShader.setMat4("model", model);
+        //tree1.Draw(lightingShader);
 
         //plane
         glBindTexture(GL_TEXTURE_2D, groundTexture);
@@ -369,8 +394,8 @@ int main()
 
         glBindVertexArray(lightCubeVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        
-         // draw skybox as last
+
+        // draw skybox as last
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
         skyboxShader.use();
         view = glm::mat4(glm::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
@@ -383,7 +408,7 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         glDepthFunc(GL_LESS); // set depth function back to default
-        
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();

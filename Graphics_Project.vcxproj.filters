@@ -76,6 +76,12 @@
     <Text Include="lightCubeFS.txt">
       <Filter>Resource Files\shaders</Filter>
     </Text>
+    <Text Include="lightVS.txt">
+      <Filter>Resource Files\shaders</Filter>
+    </Text>
+    <Text Include="lightFS.txt">
+      <Filter>Resource Files\shaders</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\awesomeface.png">
