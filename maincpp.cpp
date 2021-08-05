@@ -345,7 +345,7 @@ int main()
         //big dharahara
         MathLib::mat4 model = MathLib::mat4(1.0f);
         model = MathLib::translate(model, MathLib::vec3(0.0f, -1.495f, 0.0f)); // translate it down so it's at the center of the scene
-        model = MathLib::scale(model, MathLib::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
+        model = MathLib::scale(model, MathLib::vec3(1.2f, 1.2f, 1.2f));	// it's a bit too big for our scene, so scale it down
         model = MathLib::rotate(model, to_radians(-135.0f), MathLib::vec3(0.0, 1.0, 0.0));
         lightingShader.setMat4("model", model);
         bigDharaharaModel.Draw(lightingShader);
