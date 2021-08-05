@@ -137,16 +137,17 @@ namespace Transf {
 		return result * matrix;
 	}
 
-	mat4 lookAt(const vec3& eye, const vec3& center, const vec3& up) {
+
+	mat4 lookAt(const vec3& position, const vec3& target, const vec3& up) {
 		mat4 result(1.0f);
 
-		auto f = (-center + eye).unitVector();
-		auto s = cross(up, f).unitVector();
-		auto u = cross(f, s).unitVector();
+		auto dir = (-target + position).unitVector();
+		auto right = cross(up, dir).unitVector();
+		auto u = cross(dir, right).unitVector();
 
-		result.mat[0][0] = s.x;
-		result.mat[1][0] = s.y;
-		result.mat[2][0] = s.z;
+		result.mat[0][0] = right.x;
+		result.mat[1][0] = right.y;
+		result.mat[2][0] = right.z;
 
 
 		result.mat[0][1] = u.x;
@@ -154,17 +155,18 @@ namespace Transf {
 		result.mat[2][1] = u.z;
 
 
-		result.mat[0][2] = f.x;
-		result.mat[1][2] = f.y;
-		result.mat[2][2] = f.z;
+		result.mat[0][2] = dir.x;
+		result.mat[1][2] = dir.y;
+		result.mat[2][2] = dir.z;
 
 
-		result.mat[3][0] = -s.dot(eye);
-		result.mat[3][1] = -u.dot(eye);
-		result.mat[3][2] = -f.dot(eye);
+		result.mat[3][0] = -right.dot(position);
+		result.mat[3][1] = -u.dot(position);
+		result.mat[3][2] = -dir.dot(position);
 
 		return result;
 	}
+
 
 
 	mat4 perspective(float fov, float aspectRatio, float near, float far){
