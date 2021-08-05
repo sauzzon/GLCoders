@@ -1,7 +1,7 @@
 #include "matrix.h"
 #include "vec.h"
 
-namespace MathLib {
+namespace Transf {
 	//mat3 constructor
 	mat3::mat3(mat4 mat4){
 		for (int i = 0; i < 3; i++){

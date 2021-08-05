@@ -22,7 +22,7 @@ const unsigned int SCR_WIDTH = 3840;
 const unsigned int SCR_HEIGHT = 2400;
 
 // camera
-Camera camera(MathLib::vec3(0.0f, 0.0f, 12.0f));
+Camera camera(Transf::vec3(0.0f, 0.0f, 12.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -32,7 +32,7 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 //lighting
-MathLib::vec3 lightPos(15.0f, 20.0f, 1.0f);
+Transf::vec3 lightPos(15.0f, 20.0f, 1.0f);
 //glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 //glm::vec3 lightPos(-1.2f, 1.0f, 2.0f);
 
@@ -220,8 +220,8 @@ int main()
     stbi_image_free(data);
 
     Shader groundShader("groundVS.txt", "groundFS.txt");
-    MathLib::mat4 groundModelMatrix = MathLib::translate(MathLib::mat4(1.f), MathLib::vec3(10.f, -1.5f, 0.f));
-    groundModelMatrix = MathLib::scale(groundModelMatrix, MathLib::vec3(100.f));
+    Transf::mat4 groundModelMatrix = Transf::translate(Transf::mat4(1.f), Transf::vec3(10.f, -1.5f, 0.f));
+    groundModelMatrix = Transf::scale(groundModelMatrix, Transf::vec3(100.f));
     groundShader.use();
     groundShader.setMat4("model", groundModelMatrix);
     groundShader.setInt("g_texture", 0);
@@ -335,18 +335,18 @@ int main()
         lightingShader.setFloat("material.shininess", 32.0f);
 
         // view/projection transformations
-        MathLib::mat4 projection = MathLib::perspective(to_radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        MathLib::mat4 view = camera.GetViewMatrix();
+        Transf::mat4 projection = Transf::perspective(to_radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        Transf::mat4 view = camera.GetViewMatrix();
         lightingShader.setMat4("projection", projection);
         lightingShader.setMat4("view", view);
 
         // render the loaded model
 
         //big dharahara
-        MathLib::mat4 model = MathLib::mat4(1.0f);
-        model = MathLib::translate(model, MathLib::vec3(0.0f, -1.495f, 0.0f)); // translate it down so it's at the center of the scene
-        model = MathLib::scale(model, MathLib::vec3(1.2f, 1.2f, 1.2f));	// it's a bit too big for our scene, so scale it down
-        model = MathLib::rotate(model, to_radians(-135.0f), MathLib::vec3(0.0, 1.0, 0.0));
+        Transf::mat4 model = Transf::mat4(1.0f);
+        model = Transf::translate(model, Transf::vec3(0.0f, -1.495f, 0.0f)); // translate it down so it's at the center of the scene
+        model = Transf::scale(model, Transf::vec3(1.2f, 1.2f, 1.2f));	// it's a bit too big for our scene, so scale it down
+        model = Transf::rotate(model, to_radians(-135.0f), Transf::vec3(0.0, 1.0, 0.0));
         lightingShader.setMat4("model", model);
         bigDharaharaModel.Draw(lightingShader);
 
@@ -383,9 +383,9 @@ int main()
         lightCubeShader.use();
         lightCubeShader.setMat4("projection", projection);
         lightCubeShader.setMat4("view", view);
-        model = MathLib::mat4(1.0);
-        model = MathLib::translate(model, lightPos);
-        model = MathLib::scale(model, MathLib::vec3(0.2f)); //a smaller cube
+        model = Transf::mat4(1.0);
+        model = Transf::translate(model, lightPos);
+        model = Transf::scale(model, Transf::vec3(0.2f)); //a smaller cube
         lightCubeShader.setMat4("model", model);
 
         glBindVertexArray(lightCubeVAO);
@@ -394,7 +394,7 @@ int main()
         // draw skybox as last
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
         skyboxShader.use();
-        view = MathLib::mat4(MathLib::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
+        view = Transf::mat4(Transf::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
         skyboxShader.setMat4("view", view);
         skyboxShader.setMat4("projection", projection);
         // skybox cube

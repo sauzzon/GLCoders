@@ -28,11 +28,11 @@ class Camera
 {
 public:
     // camera Attributes
-    MathLib::vec3 Position;
-    MathLib::vec3 Front;
-    MathLib::vec3 Up;
-    MathLib::vec3 Right;
-    MathLib::vec3 WorldUp;
+    Transf::vec3 Position;
+    Transf::vec3 Front;
+    Transf::vec3 Up;
+    Transf::vec3 Right;
+    Transf::vec3 WorldUp;
     // euler Angles
     float Yaw;
     float Pitch;
@@ -42,7 +42,7 @@ public:
     float Zoom;
 
     // constructor with vectors
-    Camera(MathLib::vec3 position = MathLib::vec3(0.0f, 0.0f, 0.0f), MathLib::vec3 up = MathLib::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(MathLib::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
+    Camera(Transf::vec3 position = Transf::vec3(0.0f, 0.0f, 0.0f), Transf::vec3 up = Transf::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(Transf::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
     {
         Position = position;
         WorldUp = up;
@@ -51,19 +51,19 @@ public:
         updateCameraVectors();
     }
     // constructor with scalar values
-    Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch) : Front(MathLib::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
+    Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch) : Front(Transf::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
     {
-        Position = MathLib::vec3(posX, posY, posZ);
-        WorldUp = MathLib::vec3(upX, upY, upZ);
+        Position = Transf::vec3(posX, posY, posZ);
+        WorldUp = Transf::vec3(upX, upY, upZ);
         Yaw = yaw;
         Pitch = pitch;
         updateCameraVectors();
     }
 
     // returns the view matrix calculated using Euler Angles and the LookAt Matrix
-    MathLib::mat4 GetViewMatrix()
+    Transf::mat4 GetViewMatrix()
     {
-        return MathLib::lookAt(Position, Position + Front, Up);
+        return Transf::lookAt(Position, Position + Front, Up);
     }
 
     // processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
@@ -117,14 +117,14 @@ private:
     void updateCameraVectors()
     {
         // calculate the new Front vector
-        MathLib::vec3 front;
+        Transf::vec3 front;
         front.x = cos(to_radians(Yaw)) * cos(to_radians(Pitch));
         front.y = sin(to_radians(Pitch));
         front.z = sin(to_radians(Yaw)) * cos(to_radians(Pitch));
-        Front = MathLib::normalize(front);
+        Front = Transf::normalize(front);
         // also re-calculate the Right and Up vector
-        Right = MathLib::normalize(MathLib::cross(Front, WorldUp));  // normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
-        Up = MathLib::normalize(MathLib::cross(Right, Front));
+        Right = Transf::normalize(Transf::cross(Front, WorldUp));  // normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+        Up = Transf::normalize(Transf::cross(Right, Front));
     }
 };
 #endif

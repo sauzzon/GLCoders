@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-namespace MathLib {
+namespace Transf {
 
 	struct mat4;
 

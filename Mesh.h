@@ -12,15 +12,15 @@ using namespace std;
 
 struct Vertex {
     // position
-    MathLib::vec3 Position;
+    Transf::vec3 Position;
     // normal
-    MathLib::vec3 Normal;
+    Transf::vec3 Normal;
     // texCoords
-    MathLib::vec2 TexCoords;
+    Transf::vec2 TexCoords;
     // tangent
-    MathLib::vec3 Tangent;
+    Transf::vec3 Tangent;
     // bitangent
-    MathLib::vec3 Bitangent;
+    Transf::vec3 Bitangent;
 };
 
 struct Texture {

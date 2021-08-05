@@ -6,7 +6,7 @@
 #define to_radians(deg) ((deg) * (PI / 180.0f))
 #define to_degrees(rad) ((rad) * (180.0f / PI))
 
-namespace MathLib {
+namespace Transf {
 	union vec2 {
 		float m[2];
 

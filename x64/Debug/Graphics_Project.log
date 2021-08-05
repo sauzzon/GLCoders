@@ -7,8 +7,8 @@ D:\GLCoders\Camera.h(122,22): warning C4244: '=': conversion from 'double' to 'f
 D:\GLCoders\Camera.h(123,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\GLCoders\Mesh.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
 D:\GLCoders\maincpp.cpp(308,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(338,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(349,89): warning C4305: 'argument': truncation from 'double' to 'const float'
+D:\GLCoders\maincpp.cpp(338,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(349,87): warning C4305: 'argument': truncation from 'double' to 'const float'
 D:\GLCoders\maincpp.cpp(451,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\GLCoders\maincpp.cpp(452,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\GLCoders\maincpp.cpp(456,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
