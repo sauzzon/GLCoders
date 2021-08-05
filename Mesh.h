@@ -3,8 +3,6 @@
 
 #include <glad/glad.h> // holds all OpenGL type declarations
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 #include "Shader.h"
 
@@ -14,15 +12,15 @@ using namespace std;
 
 struct Vertex {
     // position
-    glm::vec3 Position;
+    MathLib::vec3 Position;
     // normal
-    glm::vec3 Normal;
+    MathLib::vec3 Normal;
     // texCoords
-    glm::vec2 TexCoords;
+    MathLib::vec2 TexCoords;
     // tangent
-    glm::vec3 Tangent;
+    MathLib::vec3 Tangent;
     // bitangent
-    glm::vec3 Bitangent;
+    MathLib::vec3 Bitangent;
 };
 
 struct Texture {

@@ -1,13 +1,20 @@
 ﻿  maincpp.cpp
-D:\GLCoders\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
-D:\GLCoders\Mesh.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\GLCoders\maincpp.cpp(312,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(455,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(456,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(460,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(461,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(463,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(464,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(473,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\vec.h(74,15): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\vec.h(132,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\Shader.h(57,40): warning C4101: 'e': unreferenced local variable
+D:\GLCoders\Camera.h(121,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\Camera.h(122,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\Camera.h(123,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\Mesh.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\GLCoders\maincpp.cpp(308,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(338,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(349,89): warning C4305: 'argument': truncation from 'double' to 'const float'
+D:\GLCoders\maincpp.cpp(451,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(452,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(456,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(457,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(459,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(460,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(469,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Graphics_Project.vcxproj -> D:\GLCoders\x64\Debug\Graphics_Project.exe

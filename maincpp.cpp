@@ -1,10 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
 #include "Shader.h"
 #include "Camera.h"
 #include "Model.h"
@@ -26,7 +22,7 @@ const unsigned int SCR_WIDTH = 3840;
 const unsigned int SCR_HEIGHT = 2400;
 
 // camera
-Camera camera(glm::vec3(0.0f, 1.0f, 10.0f));
+Camera camera(MathLib::vec3(0.0f, 0.0f, 12.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -36,7 +32,7 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 //lighting
-glm::vec3 lightPos(15.0f, 20.0f, 1.0f);
+MathLib::vec3 lightPos(15.0f, 20.0f, 1.0f);
 //glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 //glm::vec3 lightPos(-1.2f, 1.0f, 2.0f);
 
@@ -224,8 +220,8 @@ int main()
     stbi_image_free(data);
 
     Shader groundShader("groundVS.txt", "groundFS.txt");
-    glm::mat4 groundModelMatrix = glm::translate(glm::mat4(1.f), glm::vec3(10.f, -1.5f, 0.f));
-    groundModelMatrix = glm::scale(groundModelMatrix, glm::vec3(100.f));
+    MathLib::mat4 groundModelMatrix = MathLib::translate(MathLib::mat4(1.f), MathLib::vec3(10.f, -1.5f, 0.f));
+    groundModelMatrix = MathLib::scale(groundModelMatrix, MathLib::vec3(100.f));
     groundShader.use();
     groundShader.setMat4("model", groundModelMatrix);
     groundShader.setInt("g_texture", 0);
@@ -326,9 +322,9 @@ int main()
         lightingShader.use();
         lightingShader.setVec3("light.position", lightPos);
         lightingShader.setVec3("viewPos", camera.Position);
-
+       
         // light properties
-        lightingShader.setVec3("light.ambient", 0.4f, 0.4f, 0.4f);
+        lightingShader.setVec3("light.ambient", 0.5f, 0.5f, 0.5f);
         lightingShader.setVec3("light.diffuse", 0.8f, 0.8f, 0.8f);
         lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
         lightingShader.setFloat("light.constant", 0.01f);
@@ -339,18 +335,18 @@ int main()
         lightingShader.setFloat("material.shininess", 32.0f);
 
         // view/projection transformations
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = camera.GetViewMatrix();
+        MathLib::mat4 projection = MathLib::perspective(to_radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        MathLib::mat4 view = camera.GetViewMatrix();
         lightingShader.setMat4("projection", projection);
         lightingShader.setMat4("view", view);
 
         // render the loaded model
 
         //big dharahara
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, -1.4f, 0.0f)); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
-        model = glm::rotate(model, glm::radians(-135.0f), glm::vec3(0.0, 1.0, 0.0));
+        MathLib::mat4 model = MathLib::mat4(1.0f);
+        model = MathLib::translate(model, MathLib::vec3(0.0f, -1.495f, 0.0f)); // translate it down so it's at the center of the scene
+        model = MathLib::scale(model, MathLib::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
+        model = MathLib::rotate(model, to_radians(-135.0f), MathLib::vec3(0.0, 1.0, 0.0));
         lightingShader.setMat4("model", model);
         bigDharaharaModel.Draw(lightingShader);
 
@@ -387,9 +383,9 @@ int main()
         lightCubeShader.use();
         lightCubeShader.setMat4("projection", projection);
         lightCubeShader.setMat4("view", view);
-        model = glm::mat4(1.0);
-        model = glm::translate(model, lightPos);
-        model = glm::scale(model, glm::vec3(0.2f)); //a smaller cube
+        model = MathLib::mat4(1.0);
+        model = MathLib::translate(model, lightPos);
+        model = MathLib::scale(model, MathLib::vec3(0.2f)); //a smaller cube
         lightCubeShader.setMat4("model", model);
 
         glBindVertexArray(lightCubeVAO);
@@ -398,7 +394,7 @@ int main()
         // draw skybox as last
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
         skyboxShader.use();
-        view = glm::mat4(glm::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
+        view = MathLib::mat4(MathLib::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
         skyboxShader.setMat4("view", view);
         skyboxShader.setMat4("projection", projection);
         // skybox cube
