@@ -64,9 +64,6 @@
     <Text Include="modelFS.txt">
       <Filter>Resource Files\shaders</Filter>
     </Text>
-    <Text Include="skybox.txt">
-      <Filter>Resource Files\shaders</Filter>
-    </Text>
     <Text Include="skyboxVS.txt">
       <Filter>Resource Files\shaders</Filter>
     </Text>
@@ -93,12 +90,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="textures\awesomeface.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="textures\container.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="cubeMap\back.jpg">
       <Filter>Resource Files\skybox</Filter>
     </Image>

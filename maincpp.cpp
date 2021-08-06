@@ -33,8 +33,7 @@ float lastFrame = 0.0f;
 
 //lighting
 Transf::vec3 lightPos(15.0f, 20.0f, 1.0f);
-//glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
-//glm::vec3 lightPos(-1.2f, 1.0f, 2.0f);
+
 
 int main()
 {
@@ -84,7 +83,6 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    //Shader ourShader("modelVS.txt", "modelFS.txt");
     Shader skyboxShader("skyboxVS.txt", "skyboxFS.txt");
 
     //cubeMap
@@ -227,6 +225,7 @@ int main()
     groundShader.setInt("g_texture", 0);
 
 
+   //lightCube 
     float lightCubeVertices[] = {
         -0.5f, -0.5f, -0.5f,
          0.5f, -0.5f, -0.5f,
@@ -285,13 +284,11 @@ int main()
     // load models
     // -----------
     Model bigDharaharaModel("objects/dharahara/dharaharaSerious.obj");
-    //Model smallDharaharaModel("objects/small/dharaharaSmall.obj");
-    //Model tree1("objects/tree/tree.obj");
-
+   
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    // 
-    // 
+    
+    
      // shader configuration
     // --------------------
     Shader lightingShader("lightVS.txt", "lightFS.txt");
@@ -350,22 +347,6 @@ int main()
         lightingShader.setMat4("model", model);
         bigDharaharaModel.Draw(lightingShader);
 
-        //rendering other models here
-        //small dharahara
-        //model = glm::mat4(1.0f);
-        //model = glm::translate(model, glm::vec3(1.3f, -1.3f, -1.0f)); // translate it down so it's at the center of the scene
-        //model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));	// it's a bit too big for our scene, so scale it down
-        //model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0, 1.0, 0.0));
-        //lightingShader.setMat4("model", model);
-        //smallDharaharaModel.Draw(lightingShader);
-
-        //tree
-        //model = glm::mat4(1.0f);
-        //model = glm::translate(model, glm::vec3(0.6f, -1.5f, -2.0f)); // translate it down so it's at the center of the scene
-        //model = glm::scale(model, glm::vec3(0.07f, 0.07f, 0.07f));	// it's a bit too big for our scene, so scale it down
-        //lightingShader.setMat4("model", model);
-        //tree1.Draw(lightingShader);
-
         //plane
         glBindTexture(GL_TEXTURE_2D, groundTexture);
         groundShader.use();
@@ -373,11 +354,6 @@ int main()
         groundShader.setMat4("view", view);
         glBindVertexArray(groundPlaneVAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
-
 
         //lightCube drawing
         lightCubeShader.use();
@@ -405,7 +381,8 @@ int main()
         glBindVertexArray(0);
         glDepthFunc(GL_LESS); // set depth function back to default
 
-
+       // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+       // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
