@@ -56,14 +56,11 @@
     <ClInclude Include="vec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="maincpp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="modelVS.txt">
-      <Filter>Resource Files\shaders</Filter>
-    </Text>
-    <Text Include="modelFS.txt">
-      <Filter>Resource Files\shaders</Filter>
-    </Text>
     <Text Include="skyboxVS.txt">
       <Filter>Resource Files\shaders</Filter>
     </Text>

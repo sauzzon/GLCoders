@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="maincpp.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
@@ -165,8 +166,6 @@
     <Text Include="lightCubeVS.txt" />
     <Text Include="lightFS.txt" />
     <Text Include="lightVS.txt" />
-    <Text Include="modelFS.txt" />
-    <Text Include="modelVS.txt" />
     <Text Include="skyboxFS.txt" />
     <Text Include="skyboxVS.txt" />
   </ItemGroup>
