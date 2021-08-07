@@ -137,12 +137,4 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 //lighting
-//Transf::vec3 lightPos(1.2f, 1.0f, 2.0f);
-
-// positions of the point lights
-Transf::vec3 pointLightPositions[] = {
-Transf::vec3(1.5f,  -0.9f, 0.0f),
-Transf::vec3(-1.5f, -0.9f, 0.0f),
-Transf::vec3(0.0f,  -0.9f, 1.5f),
-Transf::vec3(0.0f,  -0.9f, -1.5f)
-};
+Transf::vec3 lightPos(15.0f, 20.0f, 1.0f);
