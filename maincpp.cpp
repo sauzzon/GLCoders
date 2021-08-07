@@ -47,6 +47,12 @@ void processInput(GLFWwindow* window)
         camera.ProcessKeyboard(LEFT, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         camera.ProcessKeyboard(RIGHT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+        amb += amb * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+        amb -= amb * deltaTime;
+        
+       
 }
 
 //cubeMap
@@ -226,19 +232,26 @@ int main()
 
         // be sure to activate shader when setting uniforms/drawing objects
         lightingShader.use();
-        lightingShader.setVec3("light.position", lightPos);
         lightingShader.setVec3("viewPos", camera.Position);
-
-        // light properties
-        lightingShader.setVec3("light.ambient", 0.5f, 0.5f, 0.5f);
-        lightingShader.setVec3("light.diffuse", 0.8f, 0.8f, 0.8f);
-        lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
-        lightingShader.setFloat("light.constant", 0.01f);
-        lightingShader.setFloat("light.linear", 0.002f);
-        lightingShader.setFloat("light.quadratic", 0.0013f);
-
-        // material properties
         lightingShader.setFloat("material.shininess", 32.0f);
+
+        // point light 0
+        lightingShader.setVec3("pointLights[0].position", pointLightPositions[0]);
+        lightingShader.setVec3("pointLights[0].ambient", amb* 0.1f, amb* 0.1f, amb* 0.1f);
+        lightingShader.setVec3("pointLights[0].diffuse", 1.0f, 0.77f, 0.56f);
+        lightingShader.setVec3("pointLights[0].specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setFloat("pointLights[0].constant", 1.0f);
+        lightingShader.setFloat("pointLights[0].linear", 0.07);
+        lightingShader.setFloat("pointLights[0].quadratic", 0.017);
+
+        // point light 1
+        lightingShader.setVec3("pointLights[1].position", pointLightPositions[1]);
+        lightingShader.setVec3("pointLights[1].ambient", amb* 0.1f, amb* 0.1f, amb* 0.1f);
+        lightingShader.setVec3("pointLights[1].diffuse", 1.0f, 0.77f, 0.56f);
+        lightingShader.setVec3("pointLights[1].specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setFloat("pointLights[1].constant", 1.0f);
+        lightingShader.setFloat("pointLights[1].linear", 0.07);
+        lightingShader.setFloat("pointLights[1].quadratic", 0.017);
 
         // view/projection transformations
         Transf::mat4 projection = Transf::perspective(to_radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
@@ -251,7 +264,7 @@ int main()
         Transf::mat4 model = Transf::mat4(1.0f);
         model = Transf::translate(model, Transf::vec3(0.0f, -1.495f, 0.0f)); // translate it down so it's at the center of the scene
         model = Transf::scale(model, Transf::vec3(1.2f, 1.2f, 1.2f));	// it's a bit too big for our scene, so scale it down
-        model = Transf::rotate(model, to_radians(-135.0f), Transf::vec3(0.0, 1.0, 0.0));
+        model = Transf::rotate(model, to_radians(-90.0f), Transf::vec3(0.0, 1.0, 0.0));
         lightingShader.setMat4("model", model);
         DharaharaModel.Draw(lightingShader);
 
@@ -263,17 +276,21 @@ int main()
         glBindVertexArray(groundPlaneVAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-        // also draw the lamp object
+        // also draw the lamp object(s)
         lightCubeShader.use();
         lightCubeShader.setMat4("projection", projection);
         lightCubeShader.setMat4("view", view);
-        model = Transf::mat4(1.0f);
-        model = Transf::translate(model, lightPos);
-        model = Transf::scale(model, Transf::vec3(0.2f)); // a smaller cube
-        lightCubeShader.setMat4("model", model);
 
+        // we now draw as many light bulbs as we have point lights.
         glBindVertexArray(lightCubeVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        for (unsigned int i = 0; i < 2; i++)
+        {
+            model = Transf::mat4(1.0f);
+            model = Transf::translate(model, pointLightPositions[i]);
+            model = Transf::scale(model, Transf::vec3(0.2f)); // Make it a smaller cube
+            lightCubeShader.setMat4("model", model);
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+        }
 
         // draw skybox as last
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
