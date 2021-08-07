@@ -20,5 +20,6 @@ D:\GLCoders\maincpp.cpp(253,62): warning C4305: 'argument': truncation from 'dou
 D:\GLCoders\maincpp.cpp(254,66): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\GLCoders\maincpp.cpp(257,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\GLCoders\maincpp.cpp(267,86): warning C4305: 'argument': truncation from 'double' to 'const float'
+  LINK : D:\GLCoders\x64\Debug\Graphics_Project.exe not found or not built by the last incremental link; performing full link
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Graphics_Project.vcxproj -> D:\GLCoders\x64\Debug\Graphics_Project.exe
