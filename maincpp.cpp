@@ -262,6 +262,33 @@ int main()
         lightingShader.setFloat("pointLights[2].linear", 0.002);
         lightingShader.setFloat("pointLights[2].quadratic", 0.0013);
 
+        // point light 3
+        lightingShader.setVec3("pointLights[3].position", pointLightPositions[3]);
+        lightingShader.setVec3("pointLights[3].ambient", isDark * 0.4f, isDark * 0.4f, isDark * 0.4f);
+        lightingShader.setVec3("pointLights[3].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[3].specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("pointLights[3].constant", 1.0f);
+        lightingShader.setFloat("pointLights[3].linear", 0.22);
+        lightingShader.setFloat("pointLights[3].quadratic", 0.20);
+
+        // point light 4
+        lightingShader.setVec3("pointLights[4].position", pointLightPositions[4]);
+        lightingShader.setVec3("pointLights[4].ambient", isDark * 0.4f, isDark * 0.4f, isDark * 0.4f);
+        lightingShader.setVec3("pointLights[4].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[4].specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("pointLights[4].constant", 1.0f);
+        lightingShader.setFloat("pointLights[4].linear", 0.22);
+        lightingShader.setFloat("pointLights[4].quadratic", 0.20);
+
+        // point light 5
+        lightingShader.setVec3("pointLights[5].position", pointLightPositions[5]);
+        lightingShader.setVec3("pointLights[5].ambient", isDark * 0.2f, isDark * 0.2f, isDark * 0.2f);
+        lightingShader.setVec3("pointLights[5].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[5].specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("pointLights[5].constant", 1.0f);
+        lightingShader.setFloat("pointLights[5].linear", 0.22);
+        lightingShader.setFloat("pointLights[5].quadratic", 0.20);
+
 
         // view/projection transformations
         Transf::mat4 projection = Transf::perspective(to_radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
@@ -294,7 +321,7 @@ int main()
 
         // we now draw as many light bulbs as we have point lights.
         glBindVertexArray(lightCubeVAO);
-        for (unsigned int i = 0; i <= 2; i++)
+        for (unsigned int i = 0; i <= 5; i++)
         {
             model = Transf::mat4(1.0f);
             model = Transf::translate(model, pointLightPositions[i]);

@@ -21,6 +21,13 @@ D:\GLCoders\maincpp.cpp(253,62): warning C4305: 'argument': truncation from 'dou
 D:\GLCoders\maincpp.cpp(254,65): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\GLCoders\maincpp.cpp(262,63): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\GLCoders\maincpp.cpp(263,67): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\maincpp.cpp(267,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\maincpp.cpp(277,87): warning C4305: 'argument': truncation from 'double' to 'const float'
+D:\GLCoders\maincpp.cpp(271,62): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GLCoders\maincpp.cpp(272,65): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GLCoders\maincpp.cpp(280,62): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GLCoders\maincpp.cpp(281,65): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GLCoders\maincpp.cpp(289,62): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GLCoders\maincpp.cpp(290,65): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GLCoders\maincpp.cpp(294,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(304,87): warning C4305: 'argument': truncation from 'double' to 'const float'
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Graphics_Project.vcxproj -> D:\GLCoders\x64\Debug\Graphics_Project.exe

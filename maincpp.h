@@ -141,9 +141,12 @@ float lastFrame = 0.0f;
 
  // positions of the point lights
 Transf::vec3 pointLightPositions[] = {
-Transf::vec3(-2.5f, -0.5f, -1.0f),
-Transf::vec3(2.5f, -0.5f, -1.0f),
+Transf::vec3(-2.5f, -0.5f, -0.5f),
+Transf::vec3(2.5f, -0.5f, -0.5f),
 Transf::vec3(0.0f, 5.0f, 10.0f),
+Transf::vec3(-1.5f, -0.5f, 2.5f),
+Transf::vec3(0.80f, -0.5f, 2.5f),
+Transf::vec3(0.0f, -0.5f, -3.0f),
 };
 
 bool isDark = true;
