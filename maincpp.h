@@ -127,7 +127,7 @@ const unsigned int SCR_WIDTH = 3840;
 const unsigned int SCR_HEIGHT = 2400;
 
 // camera
-Camera camera(Transf::vec3(0.0f, 3.0f, 25.0f));
+Camera camera(Transf::vec3(0.0f, 0.0f, 15.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -141,10 +141,10 @@ float lastFrame = 0.0f;
 
  // positions of the point lights
 Transf::vec3 pointLightPositions[] = {
-Transf::vec3(-5.0f, 2.0f, 0.2f),
-Transf::vec3(5.0f, 2.0f, -1.0f),
-Transf::vec3(15.0f, 20.0f, 1.0f),
+Transf::vec3(-2.5f, -0.5f, -1.0f),
+Transf::vec3(2.5f, -0.5f, -1.0f),
+Transf::vec3(0.0f, 5.0f, 10.0f),
 };
 
-bool isDark = false;
+bool isDark = true;
 float strength;
