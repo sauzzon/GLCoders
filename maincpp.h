@@ -151,5 +151,5 @@ Transf::vec3(2.3f, -0.2f, -2.4f),
 Transf::vec3(-1.1f, -0.2f, -3.2f),
 };
 
-bool isDark = true;
+bool isDark = false;
 float strength;
