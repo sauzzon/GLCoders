@@ -237,12 +237,12 @@ int main()
 
         // point light 0
         lightingShader.setVec3("pointLights[0].position", pointLightPositions[0]);
-        lightingShader.setVec3("pointLights[0].ambient", isDark* 0.2f, isDark* 0.2f, isDark* 0.2f);
-        lightingShader.setVec3("pointLights[0].diffuse", isDark* 1.0f, isDark* 0.77f, isDark* 0.56f);
+        lightingShader.setVec3("pointLights[0].ambient", !isDark * 0.5f, !isDark * 0.5f, !isDark * 0.5f);
+        lightingShader.setVec3("pointLights[0].diffuse", !isDark * 0.8f, !isDark * 0.8f, !isDark * 0.8f);
         lightingShader.setVec3("pointLights[0].specular", 0.0f, 0.0f, 0.0f);
-        lightingShader.setFloat("pointLights[0].constant", 1.0f);
-        lightingShader.setFloat("pointLights[0].linear", 0.22);
-        lightingShader.setFloat("pointLights[0].quadratic", 0.20);
+        lightingShader.setFloat("pointLights[0].constant", 0.9f);
+        lightingShader.setFloat("pointLights[0].linear", 0.002);
+        lightingShader.setFloat("pointLights[0].quadratic", 0.0013);
 
         // point light 1
         lightingShader.setVec3("pointLights[1].position", pointLightPositions[1]);
@@ -255,12 +255,13 @@ int main()
 
         // point light 2
         lightingShader.setVec3("pointLights[2].position", pointLightPositions[2]);
-        lightingShader.setVec3("pointLights[2].ambient", !isDark* 0.5f, !isDark* 0.5f, !isDark* 0.5f);
-        lightingShader.setVec3("pointLights[2].diffuse", !isDark* 0.8f, !isDark* 0.8f, !isDark* 0.8f);
+        lightingShader.setVec3("pointLights[2].ambient", isDark* 0.2f, isDark* 0.2f, isDark* 0.2f);
+        lightingShader.setVec3("pointLights[2].diffuse", isDark* 1.0f, isDark* 0.77f, isDark* 0.56f);
         lightingShader.setVec3("pointLights[2].specular", 0.0f, 0.0f, 0.0f);
-        lightingShader.setFloat("pointLights[2].constant", 0.9f);
-        lightingShader.setFloat("pointLights[2].linear", 0.002);
-        lightingShader.setFloat("pointLights[2].quadratic", 0.0013);
+        lightingShader.setFloat("pointLights[2].constant", 1.0f);
+        lightingShader.setFloat("pointLights[2].linear", 0.22);
+        lightingShader.setFloat("pointLights[2].quadratic", 0.20);
+
 
         // point light 3
         lightingShader.setVec3("pointLights[3].position", pointLightPositions[3]);
@@ -288,6 +289,15 @@ int main()
         lightingShader.setFloat("pointLights[5].constant", 1.0f);
         lightingShader.setFloat("pointLights[5].linear", 0.22);
         lightingShader.setFloat("pointLights[5].quadratic", 0.20);
+
+        // point light 6
+        lightingShader.setVec3("pointLights[6].position", pointLightPositions[6]);
+        lightingShader.setVec3("pointLights[6].ambient", isDark * 0.2f, isDark * 0.2f, isDark * 0.2f);
+        lightingShader.setVec3("pointLights[6].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[6].specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("pointLights[6].constant", 1.0f);
+        lightingShader.setFloat("pointLights[6].linear", 0.22);
+        lightingShader.setFloat("pointLights[6].quadratic", 0.20);
 
 
         // view/projection transformations
@@ -320,15 +330,15 @@ int main()
         lightCubeShader.setMat4("view", view);
 
         // we now draw as many light bulbs as we have point lights.
-        glBindVertexArray(lightCubeVAO);
-        for (unsigned int i = 0; i <= 5; i++)
-        {
-            model = Transf::mat4(1.0f);
-            model = Transf::translate(model, pointLightPositions[i]);
-            model = Transf::scale(model, Transf::vec3(0.2f)); // Make it a smaller cube
-            lightCubeShader.setMat4("model", model);
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
+       // glBindVertexArray(lightCubeVAO);
+       // for (unsigned int i = 0; i <= 6; i++)
+       // {
+       //     model = Transf::mat4(1.0f);
+       //     model = Transf::translate(model, pointLightPositions[i]);
+       //     model = Transf::scale(model, Transf::vec3(0.2f)); // Make it a smaller cube
+       //     lightCubeShader.setMat4("model", model);
+       //     glDrawArrays(GL_TRIANGLES, 0, 36);
+       // }
 
         // draw skybox as last
        // glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
