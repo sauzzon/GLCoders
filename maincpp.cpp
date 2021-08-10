@@ -217,8 +217,6 @@ int main()
     // render loop
     while (!glfwWindowShouldClose(window))
     {
-        strength = isDark ? 0.1 : 0.5;
-
         // per-frame time logic
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -235,39 +233,49 @@ int main()
         lightingShader.use();
         lightingShader.setVec3("viewPos", camera.Position);
         lightingShader.setFloat("material.shininess", 32.0f);
+        lightingShader.setBool("isDark", isDark);
+
+        // sun light
+        lightingShader.setVec3("sunLight.position", sunLightPos);
+        lightingShader.setVec3("sunLight.ambient", 0.5f, 0.5f, 0.5f);
+        lightingShader.setVec3("sunLight.diffuse", 0.8f, 0.8f,0.8f);
+        lightingShader.setVec3("sunLight.specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("sunLight.constant", 0.9f);
+        lightingShader.setFloat("sunLight.linear", 0.002);
+        lightingShader.setFloat("sunLight.quadratic", 0.0013);
 
         // point light 0
         lightingShader.setVec3("pointLights[0].position", pointLightPositions[0]);
-        lightingShader.setVec3("pointLights[0].ambient", !isDark * 0.5f, !isDark * 0.5f, !isDark * 0.5f);
-        lightingShader.setVec3("pointLights[0].diffuse", !isDark * 0.8f, !isDark * 0.8f, !isDark * 0.8f);
+        lightingShader.setVec3("pointLights[0].ambient",0.2f, 0.2f, 0.2f);
+        lightingShader.setVec3("pointLights[0].diffuse",1.0f, 0.77f,0.56f);
         lightingShader.setVec3("pointLights[0].specular", 0.0f, 0.0f, 0.0f);
-        lightingShader.setFloat("pointLights[0].constant", 0.9f);
-        lightingShader.setFloat("pointLights[0].linear", 0.002);
-        lightingShader.setFloat("pointLights[0].quadratic", 0.0013);
+        lightingShader.setFloat("pointLights[0].constant", 1.0f);
+        lightingShader.setFloat("pointLights[0].linear", 0.35);
+        lightingShader.setFloat("pointLights[0].quadratic", 0.44);
 
         // point light 1
         lightingShader.setVec3("pointLights[1].position", pointLightPositions[1]);
-        lightingShader.setVec3("pointLights[1].ambient", isDark* 0.2f, isDark* 0.2f, isDark* 0.2f);
-        lightingShader.setVec3("pointLights[1].diffuse", isDark* 1.0f, isDark* 0.77f, isDark* 0.56f);
+        lightingShader.setVec3("pointLights[1].ambient", 0.2f, 0.2f, 0.2f);
+        lightingShader.setVec3("pointLights[1].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[1].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[1].constant", 1.0f);
         lightingShader.setFloat("pointLights[1].linear", 0.35);
         lightingShader.setFloat("pointLights[1].quadratic", 0.44);
 
+
         // point light 2
         lightingShader.setVec3("pointLights[2].position", pointLightPositions[2]);
-        lightingShader.setVec3("pointLights[2].ambient", isDark* 0.2f, isDark* 0.2f, isDark* 0.2f);
-        lightingShader.setVec3("pointLights[2].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[2].ambient",  0.2f, 0.2f, 0.2f);
+        lightingShader.setVec3("pointLights[2].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[2].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[2].constant", 1.0f);
         lightingShader.setFloat("pointLights[2].linear", 0.35);
         lightingShader.setFloat("pointLights[2].quadratic", 0.44);
 
-
         // point light 3
         lightingShader.setVec3("pointLights[3].position", pointLightPositions[3]);
-        lightingShader.setVec3("pointLights[3].ambient", isDark * 0.4f, isDark * 0.4f, isDark * 0.4f);
-        lightingShader.setVec3("pointLights[3].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[3].ambient", 0.2f, 0.2f, 0.2f);
+        lightingShader.setVec3("pointLights[3].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[3].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[3].constant", 1.0f);
         lightingShader.setFloat("pointLights[3].linear", 0.35);
@@ -275,8 +283,8 @@ int main()
 
         // point light 4
         lightingShader.setVec3("pointLights[4].position", pointLightPositions[4]);
-        lightingShader.setVec3("pointLights[4].ambient", isDark * 0.4f, isDark * 0.4f, isDark * 0.4f);
-        lightingShader.setVec3("pointLights[4].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[4].ambient", 0.2f, 0.2f, 0.2f);
+        lightingShader.setVec3("pointLights[4].diffuse", 1.0f, 0.77f,0.56f);
         lightingShader.setVec3("pointLights[4].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[4].constant", 1.0f);
         lightingShader.setFloat("pointLights[4].linear", 0.35);
@@ -284,21 +292,12 @@ int main()
 
         // point light 5
         lightingShader.setVec3("pointLights[5].position", pointLightPositions[5]);
-        lightingShader.setVec3("pointLights[5].ambient", isDark * 0.2f, isDark * 0.2f, isDark * 0.2f);
-        lightingShader.setVec3("pointLights[5].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
+        lightingShader.setVec3("pointLights[5].ambient", 0.2f, 0.2f, 0.2f);
+        lightingShader.setVec3("pointLights[5].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[5].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[5].constant", 1.0f);
         lightingShader.setFloat("pointLights[5].linear", 0.35);
         lightingShader.setFloat("pointLights[5].quadratic", 0.44);
-
-        // point light 6
-        lightingShader.setVec3("pointLights[6].position", pointLightPositions[6]);
-        lightingShader.setVec3("pointLights[6].ambient", isDark * 0.2f, isDark * 0.2f, isDark * 0.2f);
-        lightingShader.setVec3("pointLights[6].diffuse", isDark * 1.0f, isDark * 0.77f, isDark * 0.56f);
-        lightingShader.setVec3("pointLights[6].specular", 0.0f, 0.0f, 0.0f);
-        lightingShader.setFloat("pointLights[6].constant", 1.0f);
-        lightingShader.setFloat("pointLights[6].linear", 0.35);
-        lightingShader.setFloat("pointLights[6].quadratic", 0.44);
 
 
         // view/projection transformations
@@ -329,7 +328,7 @@ int main()
         groundShader.use();
         groundShader.setMat4("projection", projection);
         groundShader.setMat4("view", view);
-        groundShader.setFloat("darkStrength", strength);
+        groundShader.setFloat("isDark", isDark);
         glBindVertexArray(groundPlaneVAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -355,7 +354,7 @@ int main()
         view = Transf::mat4(Transf::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
         skyboxShader.setMat4("view", view);
         skyboxShader.setMat4("projection", projection);
-        skyboxShader.setFloat("darkStrength", strength);
+        skyboxShader.setFloat("isDark", isDark);
         // skybox cube
         glBindVertexArray(skyboxVAO);
         glActiveTexture(GL_TEXTURE0);

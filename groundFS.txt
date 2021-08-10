@@ -2,10 +2,13 @@
 in vec2 TexCord;
 
 uniform sampler2D g_texture;
-uniform float darkStrength;
+uniform bool isDark;
 
 out vec4 FragColor;
 void main()
 {
-    FragColor = texture(g_texture, TexCord) * darkStrength;
+    if(isDark)
+    FragColor = texture(g_texture, TexCord) * 0.1;
+    else
+    FragColor = texture(g_texture, TexCord) * 0.5;
 };

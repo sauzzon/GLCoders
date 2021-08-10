@@ -137,12 +137,10 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 //lighting
-//Transf::vec3 lightPos(15.0f, 20.0f, 1.0f);
+Transf::vec3 sunLightPos(0.0f, 5.0f, 10.0f);
 
  // positions of the point lights
 Transf::vec3 pointLightPositions[] = {
-Transf::vec3(0.0f, 5.0f, 10.0f),
-
 Transf::vec3(-3.2f, -0.2f, -0.5f),
 Transf::vec3(3.2f, -0.2f,  0.8f),
 Transf::vec3(-1.8f, -0.2f, 2.8f),
@@ -152,4 +150,3 @@ Transf::vec3(-1.1f, -0.2f, -3.2f),
 };
 
 bool isDark = false;
-float strength;
