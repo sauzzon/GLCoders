@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="maincpp.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="Mesh.h" />
