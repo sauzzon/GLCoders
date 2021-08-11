@@ -273,9 +273,9 @@ int main()
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         // also draw the lamp object(s)
-        lightCubeShader.use();
-        lightCubeShader.setMat4("projection", projection);
-        lightCubeShader.setMat4("view", view);
+        //lightCubeShader.use();
+        //lightCubeShader.setMat4("projection", projection);
+        //lightCubeShader.setMat4("view", view);
 
         // we now draw as many light bulbs as we have point lights.
        // glBindVertexArray(lightCubeVAO);

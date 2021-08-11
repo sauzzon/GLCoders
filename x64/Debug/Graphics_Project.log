@@ -1,20 +1,16 @@
-﻿  Light.cpp
+﻿  maincpp.cpp
 D:\GLCoders\vec.h(74,15): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 D:\GLCoders\vec.h(132,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\GLCoders\Light.cpp(24,57): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(25,61): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(33,62): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(34,65): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(42,62): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(43,65): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(52,62): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(53,65): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(61,62): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(62,65): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(70,62): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(71,65): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(79,62): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(80,65): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(89,62): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GLCoders\Light.cpp(90,65): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GLCoders\maincpp.cpp(16,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(17,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(21,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(22,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(24,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(25,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(33,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(224,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(244,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GLCoders\maincpp.cpp(254,87): warning C4305: 'argument': truncation from 'double' to 'const float'
+  LINK : D:\GLCoders\x64\Debug\Graphics_Project.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Graphics_Project.vcxproj -> D:\GLCoders\x64\Debug\Graphics_Project.exe
