@@ -2,7 +2,7 @@
 #include "vec.h"
 #include "Shader.h"
 
-const int noOfLight = 6;
+const int noOfLight = 7;
 
 class Light
 {
