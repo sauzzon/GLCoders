@@ -273,20 +273,20 @@ int main()
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         // also draw the lamp object(s)
-        //lightCubeShader.use();
-        //lightCubeShader.setMat4("projection", projection);
-        //lightCubeShader.setMat4("view", view);
+        lightCubeShader.use();
+        lightCubeShader.setMat4("projection", projection);
+        lightCubeShader.setMat4("view", view);
 
         // we now draw as many light bulbs as we have point lights.
-       // glBindVertexArray(lightCubeVAO);
-       // for (unsigned int i = 0; i <= 6; i++)
-       // {
-       //     model = Transf::mat4(1.0f);
-       //     model = Transf::translate(model, pointLightPositions[i]);
-       //     model = Transf::scale(model, Transf::vec3(0.2f)); // Make it a smaller cube
-       //     lightCubeShader.setMat4("model", model);
-       //     glDrawArrays(GL_TRIANGLES, 0, 36);
-       // }
+        glBindVertexArray(lightCubeVAO);
+        for (unsigned int i = 0; i <= 7; i++)
+        {
+            model = Transf::mat4(1.0f);
+            model = Transf::translate(model, pointLightPositions[i]);
+            model = Transf::scale(model, Transf::vec3(0.2f)); // Make it a smaller cube
+            lightCubeShader.setMat4("model", model);
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+        }
 
         // draw skybox as last
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
