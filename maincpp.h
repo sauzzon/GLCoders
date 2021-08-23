@@ -136,7 +136,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-bool isDark = true;
+bool isDark = false;
 
 // positions of the point lights
 Transf::vec3 pointLightPositions[] = {
@@ -154,4 +154,17 @@ Transf::vec3(-1.1f, 0.2f, -6.0f),
 
 Transf::vec3(-3.5f, 2.5f, -2.5f),
 Transf::vec3(3.0f, 3.0f, -1.0f),
+
+//street
+Transf::vec3(-3.9f, 0.0f, 4.5f),
+Transf::vec3(2.7f, 0.0f, 5.7f),
+
+Transf::vec3(-5.3f, 0.0f, 12.0f),
+Transf::vec3(1.3f, 0.0f, 13.0f),
+
+Transf::vec3(-6.5f, 0.0f, 19.0f),
+Transf::vec3(0.1f, 0.0f, 20.1f),
+
+Transf::vec3(-7.8f, 0.0f, 26.4f),
+Transf::vec3(-1.3f, 0.0f, 27.7f),
 };
