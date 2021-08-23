@@ -191,7 +191,7 @@ int main()
     stbi_image_free(data);
    //groundMatrix
     Transf::mat4 groundModelMatrix = Transf::translate(Transf::mat4(1.f), Transf::vec3(10.f, -1.5f, 0.f));
-    groundModelMatrix = Transf::scale(groundModelMatrix, Transf::vec3(100.f));
+    groundModelMatrix = Transf::scale(groundModelMatrix, Transf::vec3(500.f));
     groundShader.use();
     groundShader.setMat4("model", groundModelMatrix);
     groundShader.setInt("g_texture", 0);
@@ -207,7 +207,7 @@ int main()
     glEnableVertexAttribArray(0);
 
     // load models
-    Model DharaharaModel("objects/dharahara/dharaharaSerious.obj");
+    Model DharaharaModel("objects/dharahara/dharaharaSeriousNewScenes.obj");
     Model LightBulb("objects/dharahara/bulbs.obj");
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
