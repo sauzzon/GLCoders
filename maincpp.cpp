@@ -279,7 +279,7 @@ int main()
 
         // we now draw as many light bulbs as we have point lights.
         glBindVertexArray(lightCubeVAO);
-        for (unsigned int i = 0; i <= 8; i++)
+        for (unsigned int i = 0; i <= 9; i++)
         {
             model = Transf::mat4(1.0f);
             model = Transf::translate(model, pointLightPositions[i]);

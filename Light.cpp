@@ -5,13 +5,15 @@
     {
         sunLightPos1 = Transf::vec3(-2.0f, 5.0f, 10.0f);
         sunLightPos2 = Transf::vec3(-1.0f, 15.0f, 60.0f);
-        pointLightPositions[0] = Transf::vec3(-3.2f, -0.2f, -0.5f);
-        pointLightPositions[1] = Transf::vec3(3.2f, -0.2f, 0.8f);
-        pointLightPositions[2] = Transf::vec3(-1.8f, -0.2f, 2.8f);
-        pointLightPositions[3] = Transf::vec3(0.80f, -0.2f, 3.3f);
-        pointLightPositions[4] = Transf::vec3(2.3f, -0.2f, -2.4f);
-        pointLightPositions[5] = Transf::vec3(-1.1f, -0.2f, -3.2f);
-        pointLightPositions[6] = Transf::vec3(1.2f, 3.5f, 1.0f);
+        pointLightPositions[0] = Transf::vec3(-4.25f, 0.2f, -2.5f);
+        pointLightPositions[1] = Transf::vec3(4.7f, 0.2f, -0.5f);
+        pointLightPositions[2] = Transf::vec3(-2.2f, 0.2f, 1.9f);
+        pointLightPositions[3] = Transf::vec3(1.4f, 0.2f, 2.7f);
+        pointLightPositions[4] = Transf::vec3(3.5f, 0.2f, -5.0f);
+        pointLightPositions[5] = Transf::vec3(-1.1f, 0.2f, -6.0f);
+
+        pointLightPositions[6] = Transf::vec3(-3.5f, 2.5f, -2.5f);
+        pointLightPositions[7] = Transf::vec3(3.0f, 3.0f, -1.0f);
     }
 
     void Light::setLights(Shader& lightingShader)
@@ -98,5 +100,14 @@
         lightingShader.setFloat("pointLights[6].constant", 1.0f);
         lightingShader.setFloat("pointLights[6].linear", 0.35);
         lightingShader.setFloat("pointLights[6].quadratic", 0.44);
+
+        // point light 7
+        lightingShader.setVec3("pointLights[7].position", pointLightPositions[7]);
+        lightingShader.setVec3("pointLights[7].ambient", 0.2f, 0.2f, 0.2f);
+        lightingShader.setVec3("pointLights[7].diffuse", 1.0f, 0.77f, 0.56f);
+        lightingShader.setVec3("pointLights[7].specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("pointLights[7].constant", 1.0f);
+        lightingShader.setFloat("pointLights[7].linear", 0.35);
+        lightingShader.setFloat("pointLights[7].quadratic", 0.44);
     }
 
