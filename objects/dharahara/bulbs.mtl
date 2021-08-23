@@ -1,5 +1,5 @@
 # Blender MTL File: 'bulbs.blend'
-# Material Count: 14
+# Material Count: 10
 
 newmtl Plastic_Matte
 Ns 40.000007
@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
 
 newmtl Plastic_Matte.001
 Ns 40.000007
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
 
 newmtl Plastic_Matte.002
 Ns 40.000007
@@ -32,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
 
 newmtl Plastic_Matte.003
 Ns 40.000007
@@ -43,51 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
-
-newmtl Plastic_Matte.004
-Ns 40.000007
-Ka 1.000000 1.000000 1.000000
-Kd 0.950000 0.950000 0.950000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
-
-newmtl Plastic_Matte.005
-Ns 40.000007
-Ka 1.000000 1.000000 1.000000
-Kd 0.950000 0.950000 0.950000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
-
-newmtl Plastic_Matte.006
-Ns 40.000007
-Ka 1.000000 1.000000 1.000000
-Kd 0.950000 0.950000 0.950000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
-
-newmtl Plastic_Matte.007
-Ns 40.000007
-Ka 1.000000 1.000000 1.000000
-Kd 0.950000 0.950000 0.950000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 3
-map_Kd white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\white-color-texture-abstract-background-pattern-can-be-used-as-wallpaper-cover-page-wallpaper-against-winter-season-white-132880917.jpg
 
 newmtl fence_material.001
 Ns 225.000000
@@ -98,7 +54,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd augustine-wong-3Om4DHcaAc0-unsplash.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\augustine-wong-3Om4DHcaAc0-unsplash.jpg
 
 newmtl fence_material.002
 Ns 225.000000
@@ -109,7 +65,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd augustine-wong-3Om4DHcaAc0-unsplash.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\augustine-wong-3Om4DHcaAc0-unsplash.jpg
 
 newmtl fence_material.003
 Ns 225.000000
@@ -120,7 +76,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd augustine-wong-3Om4DHcaAc0-unsplash.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\augustine-wong-3Om4DHcaAc0-unsplash.jpg
 
 newmtl fence_material.004
 Ns 225.000000
@@ -131,7 +87,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd augustine-wong-3Om4DHcaAc0-unsplash.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\augustine-wong-3Om4DHcaAc0-unsplash.jpg
 
 newmtl fence_material.005
 Ns 225.000000
@@ -142,7 +98,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd augustine-wong-3Om4DHcaAc0-unsplash.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\augustine-wong-3Om4DHcaAc0-unsplash.jpg
 
 newmtl fence_material.006
 Ns 225.000000
@@ -153,4 +109,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd augustine-wong-3Om4DHcaAc0-unsplash.jpg
+map_Kd C:\\Users\\sauja\\OneDrive\\Documents\\Desktop\\objects\\dharahara\\augustine-wong-3Om4DHcaAc0-unsplash.jpg

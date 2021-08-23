@@ -8,7 +8,7 @@ out vec4 FragColor;
 void main()
 {
     if(isDark)
-    FragColor = texture(g_texture, TexCord) * 0.1;
+    FragColor = texture(g_texture, TexCord) * 0.0;
     else
     FragColor = texture(g_texture, TexCord) * 0.5;
 };

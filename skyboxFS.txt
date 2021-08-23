@@ -8,7 +8,7 @@ uniform bool isDark;
 
 void main()
 {   if (isDark)
-    FragColor = texture(skybox, TexCoords) * 0.1 ;
+    FragColor = texture(skybox, TexCoords) * 0.0 ;
     else
     FragColor = texture(skybox, TexCoords) * 0.5 ;
 }
