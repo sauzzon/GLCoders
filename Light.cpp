@@ -3,7 +3,8 @@
 
     Light::Light()
     {
-        sunLightPos = Transf::vec3(0.0f, 5.0f, 10.0f);
+        sunLightPos1 = Transf::vec3(-2.0f, 5.0f, 10.0f);
+        sunLightPos2 = Transf::vec3(-1.0f, 15.0f, 60.0f);
         pointLightPositions[0] = Transf::vec3(-3.2f, -0.2f, -0.5f);
         pointLightPositions[1] = Transf::vec3(3.2f, -0.2f, 0.8f);
         pointLightPositions[2] = Transf::vec3(-1.8f, -0.2f, 2.8f);
@@ -15,14 +16,23 @@
 
     void Light::setLights(Shader& lightingShader)
     {
-        // sun light
-        lightingShader.setVec3("sunLight.position", sunLightPos);
-        lightingShader.setVec3("sunLight.ambient", 0.5f, 0.5f, 0.5f);
-        lightingShader.setVec3("sunLight.diffuse", 0.8f, 0.8f, 0.8f);
-        lightingShader.setVec3("sunLight.specular", 0.0f, 0.0f, 0.0f);
-        lightingShader.setFloat("sunLight.constant", 0.9f);
-        lightingShader.setFloat("sunLight.linear", 0.002);
-        lightingShader.setFloat("sunLight.quadratic", 0.0013);
+        // sun light-1
+        lightingShader.setVec3("sunLight1.position", sunLightPos1);
+        lightingShader.setVec3("sunLight1.ambient", 0.5f, 0.5f, 0.5f);
+        lightingShader.setVec3("sunLight1.diffuse", 0.8f, 0.8f, 0.8f);
+        lightingShader.setVec3("sunLight1.specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("sunLight1.constant", 1.0f);
+        lightingShader.setFloat("sunLight1.linear", 0.002);
+        lightingShader.setFloat("sunLight1.quadratic", 0.0013);
+
+        // sun light-2
+        lightingShader.setVec3("sunLight2.position", sunLightPos2);
+        lightingShader.setVec3("sunLight2.ambient", 0.5f, 0.5f, 0.5f);
+        lightingShader.setVec3("sunLight2.diffuse", 0.8f, 0.8f, 0.8f);
+        lightingShader.setVec3("sunLight2.specular", 0.0f, 0.0f, 0.0f);
+        lightingShader.setFloat("sunLight2.constant", 1.0f);
+        lightingShader.setFloat("sunLight2.linear", 0.0002);
+        lightingShader.setFloat("sunLight2.quadratic", 0.0013);
 
         // point light 0
         lightingShader.setVec3("pointLights[0].position", pointLightPositions[0]);

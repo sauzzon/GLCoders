@@ -26,7 +26,8 @@ in vec3 Normal;
 in vec2 TexCoords;
 
 uniform vec3 viewPos;
-uniform PointLight sunLight;
+uniform PointLight sunLight1;
+uniform PointLight sunLight2;
 uniform PointLight pointLights[NR_POINT_LIGHTS];
 uniform Material material;
 uniform bool isDark;
@@ -48,8 +49,10 @@ void main()
         result += CalcPointLight(pointLights[i], norm, FragPos, viewDir);    
     }
     else
-    result += CalcPointLight(sunLight, norm, FragPos, viewDir);
-
+    {
+    result += CalcPointLight(sunLight1, norm, FragPos, viewDir);
+    result += CalcPointLight(sunLight2, norm, FragPos, viewDir);
+    }
     FragColor = vec4(result, 1.0);
 }
 

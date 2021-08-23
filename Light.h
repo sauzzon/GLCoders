@@ -7,7 +7,8 @@ const int noOfLight = 7;
 class Light
 {
 private:
-	Transf::vec3 sunLightPos;
+	Transf::vec3 sunLightPos1;
+	Transf::vec3 sunLightPos2;
 	Transf::vec3 pointLightPositions[noOfLight];
 public:
     Light();

@@ -140,7 +140,9 @@ bool isDark = false;
 
 // positions of the point lights
 Transf::vec3 pointLightPositions[] = {
-Transf::vec3(0.0f, 5.0f, 10.0f),
+Transf::vec3 (-2.0f, 5.0f, 10.0f),
+Transf::vec3(-1.0f, 15.0f, 60.0f),
+
 Transf::vec3(-3.2f, -0.2f, -0.5f),
 Transf::vec3(3.2f, -0.2f, 0.8f),
 Transf::vec3(-1.8f, -0.2f, 2.8f),
