@@ -128,8 +128,8 @@
         lightingShader.setVec3("pointLights[8].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[8].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[8].constant", 1.0f);
-        lightingShader.setFloat("pointLights[8].linear", 0.35);
-        lightingShader.setFloat("pointLights[8].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[8].linear", 0.22);
+        lightingShader.setFloat("pointLights[8].quadratic", 0.20);
 
         // point light 9
         lightingShader.setVec3("pointLights[9].position", pointLightPositions[9]);
@@ -137,8 +137,8 @@
         lightingShader.setVec3("pointLights[9].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[9].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[9].constant", 1.0f);
-        lightingShader.setFloat("pointLights[9].linear", 0.35);
-        lightingShader.setFloat("pointLights[9].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[9].linear", 0.22);
+        lightingShader.setFloat("pointLights[9].quadratic", 0.20);
 
         // point light 10
         lightingShader.setVec3("pointLights[10].position", pointLightPositions[10]);
@@ -146,8 +146,8 @@
         lightingShader.setVec3("pointLights[10].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[10].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[10].constant", 1.0f);
-        lightingShader.setFloat("pointLights[10].linear", 0.35);
-        lightingShader.setFloat("pointLights[10].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[10].linear", 0.22);
+        lightingShader.setFloat("pointLights[10].quadratic", 0.20);
 
         // point light 11
         lightingShader.setVec3("pointLights[11].position", pointLightPositions[11]);
@@ -155,8 +155,8 @@
         lightingShader.setVec3("pointLights[11].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[11].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[11].constant", 1.0f);
-        lightingShader.setFloat("pointLights[11].linear", 0.35);
-        lightingShader.setFloat("pointLights[11].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[11].linear", 0.22);
+        lightingShader.setFloat("pointLights[11].quadratic", 0.20);
 
         // point light 12
         lightingShader.setVec3("pointLights[12].position", pointLightPositions[12]);
@@ -164,8 +164,8 @@
         lightingShader.setVec3("pointLights[12].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[12].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[12].constant", 1.0f);
-        lightingShader.setFloat("pointLights[12].linear", 0.35);
-        lightingShader.setFloat("pointLights[12].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[12].linear", 0.22);
+        lightingShader.setFloat("pointLights[12].quadratic", 0.20);
 
         // point light 13
         lightingShader.setVec3("pointLights[13].position", pointLightPositions[13]);
@@ -173,8 +173,8 @@
         lightingShader.setVec3("pointLights[13].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[13].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[13].constant", 1.0f);
-        lightingShader.setFloat("pointLights[13].linear", 0.35);
-        lightingShader.setFloat("pointLights[13].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[13].linear", 0.22);
+        lightingShader.setFloat("pointLights[13].quadratic", 0.20);
 
         // point light 14
         lightingShader.setVec3("pointLights[14].position", pointLightPositions[14]);
@@ -182,8 +182,8 @@
         lightingShader.setVec3("pointLights[14].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[14].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[14].constant", 1.0f);
-        lightingShader.setFloat("pointLights[14].linear", 0.35);
-        lightingShader.setFloat("pointLights[14].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[14].linear", 0.22);
+        lightingShader.setFloat("pointLights[14].quadratic", 0.20);
 
         // point light 15
         lightingShader.setVec3("pointLights[15].position", pointLightPositions[15]);
@@ -191,8 +191,8 @@
         lightingShader.setVec3("pointLights[15].diffuse", 1.0f, 0.77f, 0.56f);
         lightingShader.setVec3("pointLights[15].specular", 0.0f, 0.0f, 0.0f);
         lightingShader.setFloat("pointLights[15].constant", 1.0f);
-        lightingShader.setFloat("pointLights[15].linear", 0.35);
-        lightingShader.setFloat("pointLights[15].quadratic", 0.44);
+        lightingShader.setFloat("pointLights[15].linear", 0.22);
+        lightingShader.setFloat("pointLights[15].quadratic", 0.20);
     }
 
 
