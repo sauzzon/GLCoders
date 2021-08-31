@@ -173,9 +173,9 @@ namespace Transf {
 		mat4 result;
 
 		float scale = 1.0 / tan(fov / 2);
-        result[0][0] = scale/aspectRatio; // scale the x coordinates
-        result[1][1] = scale; // scale the y coordinates
-        result[2][2] = -(far+near) / (far - near); // remap z to [0,1] 
+        result[0][0] = scale/aspectRatio; 
+        result[1][1] = scale; 
+        result[2][2] = -(far+near) / (far - near); 
         result[2][3] = -1; 
         result[3][2] = (2*far*near)/(near - far); 
 
