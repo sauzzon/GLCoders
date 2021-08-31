@@ -1,12 +1,13 @@
-# 3D Modeling and Rendering of Dharahara using OpenGl
+# 3D Modeling and Rendering of Dharahara and Ghantaghar using OpenGl
 
 ## Introduction
 
 This is a Computer Graphics project done in the fifth semester of computer Engineering by:
 
-- Sandeep Acharya
-- Saujan Tiwari
-- Sangam Chaulagain
+- Sandeep Acharya (075BCT074)
+- Sangam Chaulagain (075BCT078)
+- Saujan Tiwari  (075BCT083)
+
 
 ## Libraries Used
 
